@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+google-cloud-vision
+pytesseract
+Pillow
+psycopg2-binary
+python-jose[cryptography]
+pytest
