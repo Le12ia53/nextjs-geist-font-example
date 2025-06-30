@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/metrologi_ia
+      - GOOGLE_VISION_API_KEY=your_google_vision_api_key
+      - JWT_SECRET=your_jwt_secret
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: metrologi_ia
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
